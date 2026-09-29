@@ -4,38 +4,170 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calm Under Pressure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<audio controls>
-  <source src="assets/audio/heart.mp3" type="audio/mpeg">
-</audio>
 
-<audio controls>
-  <source src="assets/audio/dark-times.mp3" type="audio/mpeg">
-</audio>
+<audio id="audio-dark-times" src="assets/audio/dark-times.mp3" loop></audio>
+<audio id="audio-heart" src="assets/audio/heart.mp3" loop></audio>
+<audio id="audio-crowd-eli" src="assets/audio/Flamengo.mp3" loop></audio>
+<audio id="audio-crowd-mj" src="assets/audio/846336__lebertagna__flamengo-football.mp3" loop></audio>
 
-<audio controls>
-  <source src="assets/audio/846336__lebertagna__flamengo-football.mp3" type="audio/mpeg">
-</audio>
+<section id="intro" class="screen intro-screen">
+  <div class="panel">
+    <p class="tag">Three moments. Zero margin for error.</p>
+    <h1>CALM UNDER<br>PRESSURE</h1>
+    <p class="lede">You'll get twenty seconds to read what's actually happening — then six seconds per decision. Miss the clock, and you're already gone.</p>
+    <a class="btn btn-start" href="#next-scenario">Take the field</a>
+  </div>
+</section>
 
-<audio controls>
-  <source src="assets/audio/Flamengo.mp3" type="audio/mpeg">
-</audio>
+<!-- ELI MANNING -->
 
-<img src="assets/images/56382473-3.jpg.webp" alt="Description here">
+<section id="context-eli" class="screen context" data-context data-limit="20" data-next="eli-q1" data-audio="audio-heart">
+  <div class="timer-bar"><div class="timer-fill"></div></div>
+  <div class="panel">
+    <img class="question-image" src="assets/images/Eli.jpg" alt="Eli Manning under pressure in the pocket">
+    <p class="tag">Moment — Super Bowl XLVI, Feb 5, 2012</p>
+    <h2>You are Eli Manning.</h2>
+    <p class="prompt">Fourth quarter, under four minutes left. Giants trail the Patriots 17–15. The ball is on your own 12-yard line — behind you, nothing but your own end zone. Ahead, a defense that knows exactly what's coming, and a season on the line. Get this offense down the field, however it takes.</p>
+    <a class="btn btn-continue" href="#eli-q1">Continue</a>
+  </div>
+</section>
 
-<img src="assets/images/Eli.jpg" alt="Description here">
+<section id="eli-q1" class="screen question" data-question data-limit="6" data-audio="audio-crowd-eli">
+  <div class="timer-bar"><div class="timer-fill"></div></div>
+  <div class="panel">
+    <p class="tag">Super Bowl XLVI</p>
+    <h2>A defender breaks free.</h2>
+    <p class="prompt">The pocket is collapsing fast. What's your decision?</p>
+    <div class="options">
+      <a class="option" href="#eli-q2">Step up and slide through the middle of the pocket</a>
+      <a class="option" href="#gameover">Plant your feet and brace for the hit</a>
+      <a class="option" href="#gameover">Panic and throw it up for grabs</a>
+    </div>
+  </div>
+</section>
 
-<img src="assets/images/Alcaraz.jpg" alt="Description here">
+<section id="eli-q2" class="screen question" data-question data-limit="6" data-audio="audio-crowd-eli">
+  <div class="timer-bar"><div class="timer-fill"></div></div>
+  <div class="panel">
+    <p class="tag">Super Bowl XLVI</p>
+    <h2>You see a narrow opening.</h2>
+    <p class="prompt">There's a gap in the defense, right through the middle. Do you take off?</p>
+    <div class="options">
+      <a class="option" href="#eli-q3">Go — explode through the gap</a>
+      <a class="option" href="#gameover">Stay in the pocket and wait</a>
+      <a class="option" href="#gameover">Slide down early to protect the ball</a>
+    </div>
+  </div>
+</section>
 
-<img src="assets/images/Hockey.avif" alt="Description here">
+<section id="eli-q3" class="screen question" data-question data-limit="6" data-audio="audio-crowd-eli">
+  <div class="timer-bar"><div class="timer-fill"></div></div>
+  <div class="panel">
+    <p class="tag">Super Bowl XLVI</p>
+    <h2>You're in the clear.</h2>
+    <p class="prompt">You've bought space downfield. What now?</p>
+    <div class="options">
+      <a class="option" href="#next-scenario">Let it fly deep down the sideline</a>
+      <a class="option" href="#gameover">Throw it away and live for another down</a>
+      <a class="option" href="#gameover">Tuck it and try to gain a few more yards</a>
+    </div>
+  </div>
+</section>
 
-<img src="assets/images/c5ef2f3c-92d9-43bb-981e-d342e848a39b.jpeg" alt="Description here">
+<!-- ZIDANE -->
 
-<img src="assets/images/zidane.jpg" alt="Description here">
+<section id="context-zidane" class="screen context" data-context data-limit="20" data-next="zidane-q1" data-audio="audio-heart">
+  <div class="timer-bar"><div class="timer-fill"></div></div>
+  <div class="panel">
+    <img class="question-image" src="assets/images/zidane.jpg" alt="Zinedine Zidane stepping up to a penalty kick">
+    <p class="tag">Moment — World Cup Final, July 9, 2006</p>
+    <h2>You are Zinedine Zidane.</h2>
+    <p class="prompt">Seventh minute, Olympiastadion, Berlin. Your final match before retirement, and France has just been awarded a penalty. Gianluigi Buffon — arguably the best goalkeeper alive — is set on his line. 69,000 people have gone quiet. Whatever you decide in the next few seconds gets replayed forever.</p>
+    <a class="btn btn-continue" href="#zidane-q1">Continue</a>
+  </div>
+</section>
 
-<h1>Calm Under Pressure</h1>
+<section id="zidane-q1" class="screen question" data-question data-limit="6" data-audio="audio-heart">
+  <div class="timer-bar"><div class="timer-fill"></div></div>
+  <div class="panel">
+    <p class="tag">World Cup Final</p>
+    <h2>Buffon is set. The whistle's about to blow.</h2>
+    <p class="prompt">Which side do you choose?</p>
+    <div class="options">
+      <a class="option" href="#gameover">Blast it to the keeper's right</a>
+      <a class="option" href="#gameover">Side-foot it to the keeper's left</a>
+      <a class="option" href="#next-scenario">Chip it — dead down the middle</a>
+    </div>
+  </div>
+</section>
 
+<!-- MICHAEL JORDAN -->
+
+<section id="context-mj" class="screen context" data-context data-limit="20" data-next="mj-q1" data-audio="audio-heart">
+  <div class="timer-bar"><div class="timer-fill"></div></div>
+  <div class="panel">
+    <img class="question-image" src="assets/images/56382473-3.jpg.webp" alt="Michael Jordan facing a defender">
+    <p class="tag">Moment — NBA Finals Game 6, June 14, 1998</p>
+    <h2>You are Michael Jordan.</h2>
+    <p class="prompt">Delta Center, Salt Lake City. Under 20 seconds left, Bulls trail the Jazz by one — win, and it's a sixth championship. Karl Malone has the ball in the post. Everything you've built your career on comes down to the next few possessions.</p>
+    <a class="btn btn-continue" href="#mj-q1">Continue</a>
+  </div>
+</section>
+
+<section id="mj-q1" class="screen question" data-question data-limit="6" data-audio="audio-crowd-mj">
+  <div class="timer-bar"><div class="timer-fill"></div></div>
+  <div class="panel">
+    <p class="tag">NBA Finals Game 6</p>
+    <h2>Malone's got position in the post.</h2>
+    <p class="prompt">You need the ball back. What's the move?</p>
+    <div class="options">
+      <a class="option" href="#mj-q2">Strip the ball from behind</a>
+      <a class="option" href="#gameover">Play it safe and wait to foul</a>
+      <a class="option" href="#gameover">Double off your man</a>
+    </div>
+  </div>
+</section>
+
+<section id="mj-q2" class="screen question" data-question data-limit="6" data-audio="audio-crowd-mj">
+  <div class="timer-bar"><div class="timer-fill"></div></div>
+  <div class="panel">
+    <p class="tag">NBA Finals Game 6</p>
+    <h2>Ball in your hands. Ten seconds left.</h2>
+    <p class="prompt">Bryon Russell is right on you. What's the move?</p>
+    <div class="options">
+      <a class="option" href="#next-scenario">Create space and rise for the jumper</a>
+      <a class="option" href="#gameover">Drive hard to the rim</a>
+      <a class="option" href="#gameover">Pull back and reset the offense</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+
+<section id="gameover" class="screen result result-lose">
+  <div class="panel">
+    <p class="tag">Whistle blows.</p>
+    <h2>That's the pressure talking.</h2>
+    <p class="prompt">One hesitation, one wrong read — that's all it takes. Nobody in these moments got a second attempt. Neither do you.</p>
+    <a class="btn btn-retry" href="#">Back to the tunnel</a>
+  </div>
+</section>
+
+<section id="win" class="screen result result-win" data-audio="audio-crowd-eli">
+  <div class="panel">
+    <p class="tag">Final whistle.</p>
+    <h2>Ice in your veins.</h2>
+    <p class="prompt">Your throw found the sideline and kept the drive alive. Your chip cleared the crossbar and dropped in behind it. Your jumper rose over Russell and won it at the buzzer. Three of the biggest moments in sports history — and you called every one of them right, on the exact same clock they had.</p>
+    <a class="btn btn-retry" href="#">Run it back</a>
+  </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
