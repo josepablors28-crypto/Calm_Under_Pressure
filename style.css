@@ -61,6 +61,24 @@ h2 { font-size: clamp(30px, 5.5vw, 42px); color: var(--amber); }
   padding: 60px 24px;
 }
 
+.question {
+  background: var(--bg);
+  animation: cycle-bg 12s ease-in-out infinite;
+}
+
+@keyframes cycle-bg {
+  0%   { background-color: #12151c; }
+  20%  { background-color: #1c1420; }
+  40%  { background-color: #201216; }
+  60%  { background-color: #1a1c12; }
+  80%  { background-color: #121c1a; }
+  100% { background-color: #12151c; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .question { animation: none; }
+}
+
 .screen.active { display: flex; }
 
 .panel {
