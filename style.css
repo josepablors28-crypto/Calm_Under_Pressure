@@ -248,6 +248,22 @@ h2 { font-size: clamp(32px, 6vw, 48px); color: var(--t-main); }
   margin-bottom: 24px;
 }
 
+/* Main page: rainbow color cycle, with the dot pattern kept on top */
+.intro-screen {
+  background-image: radial-gradient(circle, rgba(26,26,26,0.08) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+  animation: cycle-rainbow 5s ease-in-out infinite;
+}
+
+@keyframes cycle-rainbow {
+  0%   { background-color: #fdf6e3; }
+  20%  { background-color: #a8e6ff; }
+  40%  { background-color: #ffd6a8; }
+  60%  { background-color: #ffb3b3; }
+  80%  { background-color: #c8ffb3; }
+  100% { background-color: #fdf6e3; }
+}
+
 /* Question screens pulse between their theme's two tints */
 .question {
   animation: cycle-bg 5s ease-in-out infinite;
@@ -303,7 +319,7 @@ h2 { font-size: clamp(32px, 6vw, 48px); color: var(--t-main); }
 
 @media (prefers-reduced-motion: reduce) {
   .timer-fill.running { animation: none; transform: scaleX(0); }
-  .question { animation: none; }
+  .question, .intro-screen { animation: none; }
   .ball, .ball svg { animation: none; }
   .btn, .option { transition: none; }
 }

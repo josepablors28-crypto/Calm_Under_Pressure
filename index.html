@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -17,8 +17,10 @@
 <audio id="audio-crowd-mj" src="assets/audio/846336__lebertagna__flamengo-football.mp3" loop></audio>
 <!-- Plays only when a wrong option is clicked (not on timeouts) -->
 <audio id="audio-buzzer" src="assets/audio/Buzzer.mp3" preload="auto"></audio>
+<!-- Plays once on the win screen -->
+<audio id="audio-cheer" src="assets/audio/Cheer.mp3" preload="auto"></audio>
 
-<section id="intro" class="screen intro-screen">
+<section id="intro" class="screen intro-screen" data-audio="audio-heart">
   <!-- Filled by script.js with a mix of all three balls -->
   <div class="floating-balls" data-balls="mixed" aria-hidden="true"></div>
 
@@ -164,7 +166,7 @@
   </div>
 </section>
 
-<section id="win" class="screen result result-win" data-audio="audio-crowd-eli">
+<section id="win" class="screen result result-win" data-audio="audio-cheer">
   <div class="panel">
     <p class="tag">Final whistle.</p>
     <h2>Ice in your veins.</h2>
@@ -173,6 +175,6 @@
   </div>
 </section>
 
-<script src="script.js"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>
