@@ -15,8 +15,13 @@
 <audio id="audio-heart" src="assets/audio/heart.mp3" loop></audio>
 <audio id="audio-crowd-eli" src="assets/audio/Flamengo.mp3" loop></audio>
 <audio id="audio-crowd-mj" src="assets/audio/846336__lebertagna__flamengo-football.mp3" loop></audio>
+<!-- Plays only when a wrong option is clicked (not on timeouts) -->
+<audio id="audio-buzzer" src="assets/audio/Buzzer.mp3" preload="auto"></audio>
 
 <section id="intro" class="screen intro-screen">
+  <!-- Filled by script.js with a mix of all three balls -->
+  <div class="floating-balls" data-balls="mixed" aria-hidden="true"></div>
+
   <div class="panel">
     <p class="tag">Three moments. Zero margin for error.</p>
     <h1>CALM UNDER<br>PRESSURE</h1>
@@ -25,9 +30,9 @@
   </div>
 </section>
 
-<!-- ELI MANNING -->
+<!-- ELI MANNING — Giants blue & red, footballs -->
 
-<section id="context-eli" class="screen context" data-context data-limit="20" data-next="eli-q1" data-audio="audio-heart">
+<section id="context-eli" class="screen context" data-theme="eli" data-context data-limit="20" data-next="eli-q1" data-audio="audio-heart">
   <div class="timer-bar"><div class="timer-fill"></div></div>
   <div class="panel">
     <img class="question-image" src="assets/images/Eli.jpg" alt="Eli Manning under pressure in the pocket">
@@ -38,7 +43,7 @@
   </div>
 </section>
 
-<section id="eli-q1" class="screen question" data-question data-limit="6" data-audio="audio-crowd-eli">
+<section id="eli-q1" class="screen question" data-theme="eli" data-question data-limit="6" data-audio="audio-crowd-eli">
   <div class="timer-bar"><div class="timer-fill"></div></div>
   <div class="panel">
     <p class="tag">Super Bowl XLVI</p>
@@ -52,7 +57,7 @@
   </div>
 </section>
 
-<section id="eli-q2" class="screen question" data-question data-limit="6" data-audio="audio-crowd-eli">
+<section id="eli-q2" class="screen question" data-theme="eli" data-question data-limit="6" data-audio="audio-crowd-eli">
   <div class="timer-bar"><div class="timer-fill"></div></div>
   <div class="panel">
     <p class="tag">Super Bowl XLVI</p>
@@ -66,7 +71,7 @@
   </div>
 </section>
 
-<section id="eli-q3" class="screen question" data-question data-limit="6" data-audio="audio-crowd-eli">
+<section id="eli-q3" class="screen question" data-theme="eli" data-question data-limit="6" data-audio="audio-crowd-eli">
   <div class="timer-bar"><div class="timer-fill"></div></div>
   <div class="panel">
     <p class="tag">Super Bowl XLVI</p>
@@ -80,9 +85,9 @@
   </div>
 </section>
 
-<!-- ZIDANE -->
+<!-- ZIDANE — France blue & red, soccer balls -->
 
-<section id="context-zidane" class="screen context" data-context data-limit="20" data-next="zidane-q1" data-audio="audio-heart">
+<section id="context-zidane" class="screen context" data-theme="zidane" data-context data-limit="20" data-next="zidane-q1" data-audio="audio-heart">
   <div class="timer-bar"><div class="timer-fill"></div></div>
   <div class="panel">
     <img class="question-image" src="assets/images/Zidane.jpeg" alt="Zinedine Zidane stepping up to a penalty kick">
@@ -93,7 +98,7 @@
   </div>
 </section>
 
-<section id="zidane-q1" class="screen question" data-question data-limit="6" data-audio="audio-heart">
+<section id="zidane-q1" class="screen question" data-theme="zidane" data-question data-limit="6" data-audio="audio-heart">
   <div class="timer-bar"><div class="timer-fill"></div></div>
   <div class="panel">
     <p class="tag">World Cup Final</p>
@@ -107,9 +112,9 @@
   </div>
 </section>
 
-<!-- MICHAEL JORDAN -->
+<!-- MICHAEL JORDAN — Bulls red & black, basketballs -->
 
-<section id="context-mj" class="screen context" data-context data-limit="20" data-next="mj-q1" data-audio="audio-heart">
+<section id="context-mj" class="screen context" data-theme="mj" data-context data-limit="20" data-next="mj-q1" data-audio="audio-heart">
   <div class="timer-bar"><div class="timer-fill"></div></div>
   <div class="panel">
     <img class="question-image" src="assets/images/56382473-3.jpg.webp" alt="Michael Jordan facing a defender">
@@ -120,7 +125,7 @@
   </div>
 </section>
 
-<section id="mj-q1" class="screen question" data-question data-limit="6" data-audio="audio-crowd-mj">
+<section id="mj-q1" class="screen question" data-theme="mj" data-question data-limit="6" data-audio="audio-crowd-mj">
   <div class="timer-bar"><div class="timer-fill"></div></div>
   <div class="panel">
     <p class="tag">NBA Finals Game 6</p>
@@ -134,7 +139,7 @@
   </div>
 </section>
 
-<section id="mj-q2" class="screen question" data-question data-limit="6" data-audio="audio-crowd-mj">
+<section id="mj-q2" class="screen question" data-theme="mj" data-question data-limit="6" data-audio="audio-crowd-mj">
   <div class="timer-bar"><div class="timer-fill"></div></div>
   <div class="panel">
     <p class="tag">NBA Finals Game 6</p>

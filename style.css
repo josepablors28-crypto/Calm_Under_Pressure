@@ -10,6 +10,50 @@
   --success: #2ecc71;
   --court-blue: #1e90ff;
   --court-red: #e8342a;
+
+  /* Default theme tokens (intro + results). Scenario themes override these. */
+  --t-main: var(--court-red);
+  --t-second: var(--court-blue);
+  --t-shadow-1: var(--court-blue);
+  --t-shadow-2: var(--court-red);
+  --t-tint-1: #fdf6e3;
+  --t-tint-2: #ffe8b0;
+  --t-option-hover: var(--bg-alt);
+}
+
+/* ---------- Scenario themes ---------- */
+
+/* Giants: royal blue + red, footballs */
+.screen[data-theme="eli"] {
+  --t-main: #0b2265;
+  --t-second: #a71930;
+  --t-shadow-1: #a71930;
+  --t-shadow-2: #0b2265;
+  --t-tint-1: #f3f5ff;
+  --t-tint-2: #dfe5ff;
+  --t-option-hover: #e4e9ff;
+}
+
+/* France: bleu + rouge, soccer balls */
+.screen[data-theme="zidane"] {
+  --t-main: #0055a4;
+  --t-second: #ef4135;
+  --t-shadow-1: #ef4135;
+  --t-shadow-2: #0055a4;
+  --t-tint-1: #ffffff;
+  --t-tint-2: #e6efff;
+  --t-option-hover: #ffe9e7;
+}
+
+/* Bulls: red + black, basketballs */
+.screen[data-theme="mj"] {
+  --t-main: #ce1141;
+  --t-second: #000000;
+  --t-shadow-1: #000000;
+  --t-shadow-2: #000000;
+  --t-tint-1: #fff6f4;
+  --t-tint-2: #ffdcd6;
+  --t-option-hover: #ffe3de;
 }
 
 * { box-sizing: border-box; }
@@ -33,14 +77,19 @@ h1, h2 {
   line-height: 1.05;
   letter-spacing: 0.03em;
   -webkit-text-stroke: 2px var(--line);
-  text-shadow: 4px 4px 0 var(--court-blue), 8px 8px 0 var(--court-red);
+  text-shadow: 4px 4px 0 var(--t-shadow-1), 8px 8px 0 var(--t-shadow-2);
 }
 
 h1 { font-size: clamp(48px, 9vw, 90px); color: var(--amber); }
-h2 { font-size: clamp(32px, 6vw, 48px); color: var(--court-red); }
+h2 { font-size: clamp(32px, 6vw, 48px); color: var(--t-main); }
+
+/* MJ: one hard black drop shadow reads more "Bulls" than a double one */
+.screen[data-theme="mj"] h2 { text-shadow: 5px 5px 0 #000; }
 
 .screen {
   display: none;
+  position: relative;
+  overflow: hidden;
   min-height: 100vh;
   width: 100%;
   align-items: center;
@@ -50,7 +99,16 @@ h2 { font-size: clamp(32px, 6vw, 48px); color: var(--court-red); }
 
 .screen.active { display: flex; }
 
+/* Themed screens bring back the dot pattern over their own tint */
+.screen[data-theme] {
+  background-image: radial-gradient(circle, rgba(26,26,26,0.07) 1.5px, transparent 1.5px);
+  background-size: 14px 14px;
+  background-color: var(--t-tint-1);
+}
+
 .panel {
+  position: relative;
+  z-index: 1;
   max-width: 560px;
   width: 100%;
   text-align: center;
@@ -65,6 +123,8 @@ h2 { font-size: clamp(32px, 6vw, 48px); color: var(--court-red); }
   letter-spacing: 0.1em;
 }
 
+.screen[data-theme] .tag { color: var(--t-second); }
+
 .lede, .prompt {
   font-size: 19px;
   font-weight: 500;
@@ -73,6 +133,9 @@ h2 { font-size: clamp(32px, 6vw, 48px); color: var(--court-red); }
   margin: 0 auto 8px auto;
   max-width: 46ch;
 }
+
+/* Words colored by script.js inside themed prompts */
+.prompt .w { font-weight: 700; }
 
 .btn {
   display: inline-block;
@@ -107,6 +170,8 @@ h2 { font-size: clamp(32px, 6vw, 48px); color: var(--court-red); }
   color: var(--panel);
 }
 
+.screen[data-theme] .btn-continue { background: var(--t-main); }
+
 .options {
   display: flex;
   flex-direction: column;
@@ -123,18 +188,27 @@ h2 { font-size: clamp(32px, 6vw, 48px); color: var(--court-red); }
   text-decoration: none;
   font-size: 18px;
   font-weight: 600;
+  line-height: 1.5;
   border-radius: 8px;
   box-shadow: 4px 4px 0 var(--line);
   transition: transform .1s, box-shadow .1s, background .15s;
 }
 
+.screen[data-theme] .option { box-shadow: 4px 4px 0 var(--t-main); }
+
 .option:hover {
-  background: var(--bg-alt);
+  background: var(--t-option-hover);
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0 var(--line);
 }
 
 .option:focus-visible { outline: 3px solid var(--court-blue); outline-offset: 2px; }
+
+/* Uneven option text: each word gets its own size/tilt/offset from script.js */
+.option .w {
+  display: inline-block;
+  transform: translateY(var(--dy, 0)) rotate(var(--rot, 0deg));
+}
 
 .timer-bar {
   position: fixed;
@@ -147,7 +221,7 @@ h2 { font-size: clamp(32px, 6vw, 48px); color: var(--court-red); }
 .timer-fill {
   height: 100%;
   width: 100%;
-  background: linear-gradient(90deg, var(--court-blue), var(--court-red));
+  background: linear-gradient(90deg, var(--t-second), var(--t-main));
   transform-origin: left;
   transform: scaleX(1);
 }
@@ -170,29 +244,67 @@ h2 { font-size: clamp(32px, 6vw, 48px); color: var(--court-red); }
   object-fit: cover;
   border: 4px solid var(--line);
   border-radius: 8px;
-  box-shadow: 5px 5px 0 var(--line);
+  box-shadow: 5px 5px 0 var(--t-main);
   margin-bottom: 24px;
 }
 
+/* Question screens pulse between their theme's two tints */
 .question {
   animation: cycle-bg 5s ease-in-out infinite;
 }
 
 @keyframes cycle-bg {
-  0%   { background-color: #fdf6e3; }
-  20%  { background-color: #a8e6ff; }
-  40%  { background-color: #ffd6a8; }
-  60%  { background-color: #ffb3b3; }
-  80%  { background-color: #c8ffb3; }
-  100% { background-color: #fdf6e3; }
+  0%, 100% { background-color: var(--t-tint-1); }
+  50%      { background-color: var(--t-tint-2); }
 }
 
 .result-lose h2 { color: var(--danger); }
 .result-win h2 { color: var(--success); }
 
+/* ---------- Floating balls ---------- */
+
+.floating-balls {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Scenario screens: quieter balls so the words stay readable */
+.screen[data-theme] .floating-balls { opacity: 0.32; }
+
+/* Outer wrapper drifts, inner svg spins — two separate elements so the
+   two transform animations don't overwrite each other */
+.ball {
+  position: absolute;
+  animation: drift 14s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(26,26,26,0.25));
+}
+
+.ball svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: spin 9s linear infinite;
+}
+
+@keyframes drift {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(18px, -24px); }
+  50%  { transform: translate(-14px, 14px); }
+  75%  { transform: translate(22px, 10px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .timer-fill.running { animation: none; transform: scaleX(0); }
   .question { animation: none; }
+  .ball, .ball svg { animation: none; }
   .btn, .option { transition: none; }
 }
 
